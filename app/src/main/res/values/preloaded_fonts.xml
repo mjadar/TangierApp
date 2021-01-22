@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/archivo_black</item>
+        <item>@font/averia_sans_libre_light</item>
+        <item>@font/cabin</item>
+        <item>@font/cabin_bold</item>
+        <item>@font/cantarell</item>
+        <item>@font/exo_bold</item>
+        <item>@font/fredoka_one</item>
+        <item>@font/merriweather_sans_light</item>
+        <item>@font/secular_one</item>
+        <item>@font/suez_one</item>
+        <item>@font/viga</item>
+    </array>
+</resources>

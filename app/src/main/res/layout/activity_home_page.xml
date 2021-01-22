@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fav"
+    tools:context=".HomePage">
+
+    <ImageView
+        android:layout_width="455dp"
+        android:layout_height="331dp"
+        android:layout_marginBottom="484dp"
+        android:src="@drawable/page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ViewFlipper
+        android:id="@+id/v_Flipper"
+        android:layout_width="363dp"
+        android:layout_height="198dp"
+        android:layout_marginBottom="324dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+    </ViewFlipper>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Hi,"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/cabin_bold"
+        android:textSize="19dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/cabin_bold"
+        android:text="Which place would you like to visit today ?"
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="130dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/sectors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_Flipper" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="130dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+
+        android:background="@drawable/sectors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="130dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/sectors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="128dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="52dp"
+        android:background="@drawable/sectors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_Flipper" />
+
+    <TextView
+        android:layout_width="131dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/cabin_bold"
+        android:padding="10dp"
+        android:text="       Hotels"
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_hotel_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="125dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/cabin_bold"
+        android:padding="10dp"
+        android:text="Restaurants"
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_restaurant_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/textView9" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_local_cafe_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="126dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/cabin_bold"
+        android:padding="10dp"
+        android:text="       Cafes"
+        android:textColor="@color/black"
+        android:textSize="19dp"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="129dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/cabin_bold"
+        android:padding="10dp"
+        android:text="  Places to visit"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="@+id/textView11" />
+
+    <ImageView
+        android:id="@+id/logout"
+        android:layout_width="22dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_login_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

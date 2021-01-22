@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "427317588201",
+    "project_id": "tangierapplication",
+    "storage_bucket": "tangierapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427317588201:android:aaa407cbf9e8525d94c078",
+        "android_client_info": {
+          "package_name": "com.example.tangierapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427317588201-435qk9oejr25vmmndfa07dvfrlnoukvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu1lwvESXpr8S8MUX6DWpvsvNqWUGxsCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427317588201-435qk9oejr25vmmndfa07dvfrlnoukvc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
