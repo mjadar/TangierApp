@@ -8,7 +8,7 @@ class DataHotels {
         val instance = DataHotels()
         val myHotels = mutableListOf(
         Hotel("hotel1","hotel marocain","CASABLANCA","today", R.drawable.image1),
-        Hotel("hotel2","hotel marocain","CASABLANCA","today",R.drawable.image1),
+        Hotel("The START Hotel, Casino &amp; \\nSkyPod","hotel marocain","CASABLANCA","today",R.drawable.image1),
         Hotel("hotel3","hotel marocain","CASABLANCA","today",R.drawable.image1),
         Hotel("hotel4","hotel marocain","CASABLANCA","today",R.drawable.image1),
         Hotel("hotel5","hotel marocain","CASABLANCA","today",R.drawable.image1),

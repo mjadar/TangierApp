@@ -28,8 +28,6 @@ class HotelsAdapter(
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         holder.itemView.apply {
             tvTitle.text = hotels[position].title
-            tvDescription.text = hotels[position].description
-            tvAdresse.text = hotels[position].adresse
             ivHotelImage.setImageResource(hotels[position].image)
             setOnClickListener {
               onItemClickListener?.let{it(hotels[position])}
