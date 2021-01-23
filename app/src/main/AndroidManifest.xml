@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TangierApplication">
-        <activity android:name=".HomePage"></activity>
-        <activity android:name=".RegisterUser" />
-        <activity android:name=".RegisterForm" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.HomePage"></activity>
+        <activity android:name=".ui.RegisterUser" />
+        <activity android:name=".ui.hotel.HotelsUI" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

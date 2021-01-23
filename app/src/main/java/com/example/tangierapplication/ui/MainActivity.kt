@@ -1,28 +1,28 @@
-package com.example.tangierapplication
+package com.example.tangierapplication.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
+import com.example.tangierapplication.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.email
+import kotlinx.android.synthetic.main.activity_main.emailSignIn
 import kotlinx.android.synthetic.main.activity_main.emailpass
-import kotlinx.android.synthetic.main.activity_register_form.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
 
-
         auth = FirebaseAuth.getInstance()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        auth.signOut()
         registerbutton.setOnClickListener {
-            startActivity(Intent(this,RegisterUser::class.java))
+            startActivity(Intent(this, RegisterUser::class.java))
             finish()
         }
 
@@ -38,19 +38,19 @@ class MainActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
+
     fun doLogin()
     {
-
-        if(email.text.toString().isEmpty())
+        if(emailSignIn.text.toString().isEmpty())
         {
-            email.error = "Please Enter an email ! "
-            email.requestFocus()
+            emailSignIn.error = "Please Enter an email ! "
+            emailSignIn.requestFocus()
             return
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches())
+        if(!Patterns.EMAIL_ADDRESS.matcher(emailSignIn.text.toString()).matches())
         {
-            email.error="Please enter a valid email !"
-            email.requestFocus()
+            emailSignIn.error="Please enter a valid email !"
+            emailSignIn.requestFocus()
             return
         }
         if(emailpass.text.toString().isEmpty())
@@ -59,19 +59,14 @@ class MainActivity : AppCompatActivity() {
             emailpass.requestFocus()
             return
         }
-        auth.signInWithEmailAndPassword(email.text.toString(),emailpass.text.toString()).addOnCompleteListener(this)
-        {
-            task-> if(task.isSuccessful)
-        {
-            val user = auth.currentUser
-            updateUI(user)
-        }
-            else
-        {
-            Toast.makeText(baseContext,"Login Failed !", Toast.LENGTH_SHORT).show()
-            updateUI(null)
-
-        }
+        auth.signInWithEmailAndPassword(emailSignIn.text.toString(),emailpass.text.toString()).addOnCompleteListener(this) {
+            task-> if(task.isSuccessful) {
+                val user = auth.currentUser
+                updateUI(user)
+            } else {
+                Toast.makeText(baseContext,"Login Failed !", Toast.LENGTH_SHORT).show()
+                updateUI(null)
+            }
         }
     }
     private fun updateUI(currentUser: FirebaseUser?)
@@ -79,8 +74,9 @@ class MainActivity : AppCompatActivity() {
           if(currentUser != null)
           {
               if(currentUser.isEmailVerified){
-                  startActivity(Intent(this,HomePage::class.java))
-                  finish()
+                  Intent(this, HomePage::class.java).also {
+                      startActivity(it)
+                  }
               }
               else
               {

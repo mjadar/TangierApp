@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/hotels_nav_graph"
+    app:startDestination="@id/allHotelsFragment2">
+    <fragment
+        android:id="@+id/allHotelsFragment2"
+        android:name="AllHotelsFragment"
+        android:label="AllHotelsFragment" >
+        <action
+            android:id="@+id/action_allHotelsFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="HotelFragment"
+        android:label="HotelFragment" />
+    <fragment
+        android:id="@+id/searchHotelsFragment2"
+        android:name="SearchHotelsFragment"
+        android:label="SearchHotelsFragment" >
+        <action
+            android:id="@+id/action_searchHotelsFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedHotelsFragment2"
+        android:name="SavedHotelsFragment"
+        android:label="SavedHotelsFragment" >
+        <action
+            android:id="@+id/action_savedHotelsFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
+</navigation>

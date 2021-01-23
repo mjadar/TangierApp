@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fav"
-    tools:context=".HomePage">
+    tools:context=".ui.HomePage">
 
     <ImageView
         android:layout_width="455dp"
@@ -71,7 +71,6 @@
         android:layout_height="99dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="24dp"
-
         android:background="@drawable/sectors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -97,6 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/v_Flipper" />
 
     <TextView
+        android:id="@+id/rdHotels"
         android:layout_width="131dp"
         android:layout_height="85dp"
         android:layout_marginTop="4dp"
@@ -122,7 +122,7 @@
         app:layout_constraintStart_toStartOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/rdRestaurants"
         android:layout_width="125dp"
         android:layout_height="95dp"
         android:layout_marginStart="4dp"
@@ -154,7 +154,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/rdCafés"
         android:layout_width="126dp"
         android:layout_height="96dp"
         android:layout_marginStart="4dp"
@@ -168,7 +168,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/rdPlacesVisite"
         android:layout_width="129dp"
         android:layout_height="96dp"
         android:layout_marginTop="4dp"

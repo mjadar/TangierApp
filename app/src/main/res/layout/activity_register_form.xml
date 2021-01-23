@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fav"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -88,13 +88,13 @@
 
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailRegister"
         android:layout_width="194dp"
         android:layout_height="45dp"
         android:layout_marginTop="64dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/cabin"
-        android:text="Email"
+        android:hint="Email"
         android:textColor="@color/black"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
@@ -109,20 +109,21 @@
         android:layout_marginBottom="3dp"
         android:src="@drawable/ic_baseline_person_24"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/email"
+        app:layout_constraintEnd_toStartOf="@+id/emailRegister"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.545" />
 
     <EditText
-        android:id="@+id/emailpass"
+        android:id="@+id/emailPassR"
         android:layout_width="194dp"
         android:layout_height="45dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/cabin"
-        android:text="Password"
+        android:hint="Password"
         android:textColor="@color/black"
         android:textSize="13dp"
+        android:inputType="textPassword"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintHorizontal_bias="0.547"
@@ -160,9 +161,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:src="@drawable/ic_baseline_lock_24"
-        app:layout_constraintBottom_toBottomOf="@+id/emailpass"
-        app:layout_constraintEnd_toStartOf="@+id/emailpass"
+        app:layout_constraintBottom_toBottomOf="@+id/emailPassR"
+        app:layout_constraintEnd_toStartOf="@+id/emailPassR"
         app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/emailpass" />
+        app:layout_constraintTop_toTopOf="@+id/emailPassR" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

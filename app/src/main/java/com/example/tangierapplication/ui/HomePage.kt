@@ -1,12 +1,12 @@
-package com.example.tangierapplication
+package com.example.tangierapplication.ui
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.tangierapplication.R
+import com.example.tangierapplication.ui.hotel.HotelsUI
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home_page.*
 
@@ -16,19 +16,22 @@ class HomePage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
 
-
         logout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             Toast.makeText(baseContext,"You have been signed out !", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this,MainActivity::class.java))
-            
+            startActivity(Intent(this, MainActivity::class.java))
 
         }
-        val pic = listOf(R.drawable.xxx,R.drawable.kes,R.drawable.tangerhh)
+        val pic = listOf(R.drawable.xxx, R.drawable.kes, R.drawable.tangerhh)
 
         for(image in pic )
         {
             flipperImages(image)
+        }
+        rdHotels.setOnClickListener {
+            Intent(this, HotelsUI::class.java).also {
+                startActivity(it)
+            }
         }
     }
 
