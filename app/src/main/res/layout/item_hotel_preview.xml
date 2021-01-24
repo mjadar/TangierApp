@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <RatingBar
-                android:id="@+id/ratingBar"
+                android:id="@+id/rbRatingBar"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                 android:fontFamily="@font/open_sans_bold"
                 android:text="4.91"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toEndOf="@id/ratingBar"
+                app:layout_constraintStart_toEndOf="@id/rbRatingBar"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
 
             <TextView

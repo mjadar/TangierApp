@@ -16,11 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
-
         auth = FirebaseAuth.getInstance()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        auth.signOut()
         registerbutton.setOnClickListener {
             startActivity(Intent(this, RegisterUser::class.java))
             finish()

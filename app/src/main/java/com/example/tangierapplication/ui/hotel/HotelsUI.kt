@@ -11,6 +11,6 @@ class HotelsUI: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.hotels_main)
-            bottomNavigationView.setupWithNavController(hotelsNavHostFragment.findNavController())
+        bottomNavigationView.setupWithNavController(hotelsNavHostFragment.findNavController())
     }
 }

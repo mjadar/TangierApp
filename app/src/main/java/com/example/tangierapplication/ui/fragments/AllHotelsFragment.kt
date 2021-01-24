@@ -5,19 +5,27 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ratingapp.ui.HotelsAdapter
 import com.example.tangierapplication.R
-import com.example.tangierapplication.db.DataHotels
+import com.example.tangierapplication.models.Hotel
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_all_hotels.*
 
 class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
-    lateinit var hotelsAdapter: HotelsAdapter
-
+    var hotelsAdapter: HotelsAdapter?=null
+    var db:FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val collectionReference:CollectionReference=db.collection("Hotels")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         setupRecyclerView()
-        hotelsAdapter.setOnItemClickListener {
+
+        hotelsAdapter?.setOnItemClickListener {
             val bundle = Bundle().apply {
-                putString("title",it.title)
-                putString("type","all")
+//                putString("title",it.name)
+                putParcelable("hotel",it)
             }
             findNavController().navigate(
                 R.id.action_allHotelsFragment_to_hotelFragment,bundle
@@ -26,8 +34,22 @@ class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        hotelsAdapter?.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        hotelsAdapter?.stopListening()
+    }
+
     private fun setupRecyclerView(){
-        hotelsAdapter = HotelsAdapter(DataHotels.getAllHotels())
+        val query:Query=collectionReference
+        val firestoreRecyclerOptions:FirestoreRecyclerOptions<Hotel> = FirestoreRecyclerOptions.Builder<Hotel>()
+            .setQuery(query,Hotel::class.java)
+            .build()
+        hotelsAdapter = HotelsAdapter(firestoreRecyclerOptions)
         rvAllHotels.apply {
             adapter = hotelsAdapter
             layoutManager = LinearLayoutManager(activity)

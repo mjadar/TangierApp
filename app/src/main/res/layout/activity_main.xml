@@ -107,7 +107,7 @@
         android:layout_marginTop="44dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/cabin"
-        android:hint="Name"
+        android:hint="Email"
         android:textColor="@color/black"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="@+id/textView7"

@@ -3,15 +3,16 @@ package com.example.ratingapp.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Hotel
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import kotlinx.android.synthetic.main.item_hotel_preview.view.*
 
 class HotelsAdapter(
-    var hotels:List<Hotel>
-) : RecyclerView.Adapter<HotelsAdapter.TodoViewHolder>(){
+    options: FirestoreRecyclerOptions<Hotel>
+) : FirestoreRecyclerAdapter<Hotel,HotelsAdapter.TodoViewHolder>(options){
 
     inner class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -20,17 +21,15 @@ class HotelsAdapter(
         return TodoViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return hotels.size
-    }
-
-    //bind data to our items , takes data from todos and
-    override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TodoViewHolder, position: Int, model: Hotel) {
         holder.itemView.apply {
-            tvTitle.text = hotels[position].title
-            ivHotelImage.setImageResource(hotels[position].image)
+            tvTitle.text = model.name
+            tvNoteMoyenne.text = model.avgRating.toString()
+            tvNoteNombre.text = model.numRating.toString()
+            rbRatingBar.numStars = model.avgRating.toInt()
+//            ivHotelImage.setImageResource(hotels[position].image)
             setOnClickListener {
-              onItemClickListener?.let{it(hotels[position])}
+                onItemClickListener?.let{it(model)}
             }
         }
     }
@@ -40,4 +39,6 @@ class HotelsAdapter(
     fun setOnItemClickListener(listener: (Hotel) -> Unit) {
         onItemClickListener = listener
     }
+
+
 }
