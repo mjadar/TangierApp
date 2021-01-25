@@ -1,9 +1,8 @@
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Hotel
 import com.example.tangierapplication.models.Review
@@ -15,7 +14,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_hotel.*
-import java.lang.System.exit
 
 
 class HotelFragment : Fragment(R.layout.fragment_hotel), CustomDialogFragment.RatingListener  {
@@ -36,7 +34,8 @@ class HotelFragment : Fragment(R.layout.fragment_hotel), CustomDialogFragment.Ra
         btnRateUs.setOnClickListener {
             var dialog = CustomDialogFragment()
             dialog.setTargetFragment(this,1);
-            dialog.show((activity as FragmentActivity).supportFragmentManager,"CustomDialogFragment")
+            dialog.show(this.parentFragmentManager,"CustomDialogFragment")
+
         }
 
 

@@ -1,11 +1,10 @@
 package com.example.tangierapplication.ui.dialogs
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Review
@@ -13,7 +12,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.dialog_rating.*
 import kotlinx.android.synthetic.main.dialog_rating.view.*
-import java.lang.Exception
 
 class CustomDialogFragment : DialogFragment(){
     private var ratingListener: RatingListener? = null
@@ -35,6 +33,22 @@ class CustomDialogFragment : DialogFragment(){
         return rootView
     }
 
+//
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//        if (context is RatingListener) {
+//            ratingListener = context as RatingListener
+//        } else {
+//            throw RuntimeException(context.toString()
+//                    + " must implement OnGreenFragmentListener")
+//        }
+//    }
+
+    override fun onDetach() {
+        super.onDetach()
+        ratingListener = null
+    }
+
     private fun onSubmitClicked() {
         val user = Firebase.auth.currentUser
         user?.let {
@@ -45,7 +59,7 @@ class CustomDialogFragment : DialogFragment(){
 
 //            ratingListener = targetFragment as RatingListener
             ratingListener?.onRating(rating)
-
+            Toast.makeText(parentFragment?.context,"Rating added successfully",Toast.LENGTH_SHORT).show()
         }
 
         dismiss()
@@ -55,7 +69,7 @@ class CustomDialogFragment : DialogFragment(){
         super.onCreate(savedInstanceState)
         try {
             ratingListener = targetFragment as RatingListener?
-        } catch (e: Exception) {
+        } catch (e: java.lang.ClassCastException) {
             throw ClassCastException("Calling Fragment must implement OnAddFriendListener")
         }
     }
