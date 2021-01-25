@@ -1,5 +1,6 @@
 package com.example.tangierapplication.models
 
+import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.FieldValue
 
 data class Review(

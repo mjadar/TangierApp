@@ -32,6 +32,13 @@
                 android:transitionName="background_image_transition"
                 app:srcCompat="@drawable/image1"
                 tools:targetApi="lollipop" />
+
+            <Button
+                android:id="@+id/btnRateUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="rate us" />
+
             <TextView
                 android:id="@+id/tvHtitle"
                 android:layout_width="match_parent"
@@ -82,29 +89,30 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="15sp" />
             </LinearLayout>
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Rate us :"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvHadresse" />
 
-            <RatingBar
-                android:id="@+id/rbRating"
-                android:layout_width="247dp"
-                android:layout_height="52dp"
-                android:numStars="5"
-                android:progressTint="#D4AF37"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-            />
+<!--            <TextView-->
+<!--                android:id="@+id/textView"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:fontFamily="@font/open_sans_bold"-->
+<!--                android:text="Rate us :"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/tvHadresse" />-->
+
+<!--            <RatingBar-->
+<!--                android:id="@+id/rbRating"-->
+<!--                android:layout_width="247dp"-->
+<!--                android:layout_height="52dp"-->
+<!--                android:numStars="5"-->
+<!--                android:progressTint="#D4AF37"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
 
             <TextView
                 android:id="@+id/adresse"
@@ -208,6 +216,7 @@ floor-to-ceiling windows."
         android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

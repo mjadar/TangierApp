@@ -1,3 +1,4 @@
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -13,7 +14,7 @@ import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_all_hotels.*
 
 class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
-    var hotelsAdapter: HotelsAdapter?=null
+    lateinit var hotelsAdapter: HotelsAdapter
     var db:FirebaseFirestore = FirebaseFirestore.getInstance()
     private val collectionReference:CollectionReference=db.collection("Hotels")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -24,7 +25,6 @@ class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
 
         hotelsAdapter?.setOnItemClickListener {
             val bundle = Bundle().apply {
-//                putString("title",it.name)
                 putParcelable("hotel",it)
             }
             findNavController().navigate(
@@ -33,6 +33,7 @@ class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
         }
 
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -49,6 +50,7 @@ class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
         val firestoreRecyclerOptions:FirestoreRecyclerOptions<Hotel> = FirestoreRecyclerOptions.Builder<Hotel>()
             .setQuery(query,Hotel::class.java)
             .build()
+
         hotelsAdapter = HotelsAdapter(firestoreRecyclerOptions)
         rvAllHotels.apply {
             adapter = hotelsAdapter

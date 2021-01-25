@@ -23,6 +23,7 @@ class HotelsAdapter(
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int, model: Hotel) {
         holder.itemView.apply {
+            model.hotelId=snapshots.getSnapshot(position).id
             tvTitle.text = model.name
             tvNoteMoyenne.text = model.avgRating.toString()
             tvNoteNombre.text = model.numRating.toString()
