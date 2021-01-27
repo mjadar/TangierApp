@@ -25,7 +25,7 @@ options: FirestoreRecyclerOptions<Review>
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int, model: Review) {
         holder.itemView.apply {
-            ratingItemName.text = model.userId
+            ratingItemName.text = model.userName
             ratingItemText.text = model.textR
             ratingItemRating.rating = model.rating
             if(model.timestamp!=null)

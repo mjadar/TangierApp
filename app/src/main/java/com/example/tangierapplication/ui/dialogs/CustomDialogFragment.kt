@@ -43,7 +43,7 @@ class CustomDialogFragment : DialogFragment(){
         user?.let {
             val rating = Review(
                     restaurantFormRating.rating,
-                    it.uid,
+                    it,
                     restaurantFormText.text.toString())
 
 //            ratingListener = targetFragment as RatingListener

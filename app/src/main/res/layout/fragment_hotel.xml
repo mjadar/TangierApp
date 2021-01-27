@@ -1,158 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/fav">
+
+<ImageView
+    android:id="@+id/ivHhotelImage"
+    android:layout_width="476dp"
+    android:layout_height="290dp"
+    android:layout_marginTop="0dp"
+
+    android:importantForAutofill="auto"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.507"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/royaltulip"
+    tools:targetApi="lollipop" />
+
+
+
+<LinearLayout
+
+    android:id="@+id/linearLayout"
+    android:layout_width="411dp"
+    android:layout_height="70dp"
+    android:layout_marginTop="12dp"
+    android:background="@color/hotelsand"
+    android:filterTouchesWhenObscured="false"
+    android:orientation="vertical"
+    android:scrollbarThumbHorizontal="@color/white"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ivHhotelImage">
+
+
+    <TextView
+        android:id="@+id/tvHtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/cabin_bold"
+        android:text="  Royal Tulip Hotel"
+        android:textColor="@color/fav"
+        android:textSize="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_location" />
+
+        <TextView
+            android:id="@+id/tvHadresse"
+            android:layout_width="393dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:text="Route de Malabata, Tanger 90000"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+    </LinearLayout>
+
+</LinearLayout>
+
+<ScrollView
+    android:id="@+id/third_scrillview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="315dp"
+    android:layout_marginStart="1dp"
+    android:layout_marginEnd="1dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/hotelsand"
+    android:scrollbars="none"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+    app:layout_constraintVertical_bias="0.333">
 
-
-    <ScrollView
-        android:id="@+id/third_scrillview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/ivHhotelImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:transitionName="background_image_transition"
-                app:srcCompat="@drawable/image1"
+            <RatingBar
+                android:id="@+id/third_ratingbar"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="7dp"
+                android:max="5"
+                android:numStars="5"
+                android:progressTint="@color/fav"
+                android:rating="4.5"
+                android:stepSize="0.5"
                 tools:targetApi="lollipop" />
 
-            <Button
-                android:id="@+id/btnRateUs"
+            <TextView
+                android:id="@+id/third_rating_number"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="rate us" />
-
-            <TextView
-                android:id="@+id/tvHtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans_extra_bold"
-                android:text="The STRAT Hotel, Casino &amp; SkyPod"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
-                <RatingBar
-                    android:id="@+id/third_ratingbar"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:max="5"
-                    android:numStars="5"
-                    android:progressTint="@color/colorAccent"
-                    android:rating="4.5"
-                    android:stepSize="0.5"
-                    tools:targetApi="lollipop" />
-
-                <TextView
-                    android:id="@+id/third_rating_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="4.75"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/third_rating_number2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/open_sans_light"
-                    android:text="(510)"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15sp" />
-            </LinearLayout>
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:fontFamily="@font/open_sans_bold"-->
-<!--                android:text="Rate us :"-->
-<!--                android:textColor="@color/colorPrimary"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tvHadresse" />-->
-
-<!--            <RatingBar-->
-<!--                android:id="@+id/rbRating"-->
-<!--                android:layout_width="247dp"-->
-<!--                android:layout_height="52dp"-->
-<!--                android:numStars="5"-->
-<!--                android:progressTint="#D4AF37"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView" />-->
-
-
-            <TextView
-                android:id="@+id/adresse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Adresse"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvHadresse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp"
-                android:alpha="0.5"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Boulevard zerktouni"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/about"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="About"
-                android:textColor="@color/colorPrimary"
+                android:text="4.75"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/third_rating_number2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="(100)"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/about_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:alpha="0.5"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Top of the World is known as one of the
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/adresse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="9dp"
+            android:text="Information"
+            android:textColor="@color/fav"
+            android:textSize="15sp"
+            android:fontFamily="@font/open_sans_bold"/>
+
+        <TextView
+            android:id="@+id/about_text"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:alpha="0.5"
+            android:fontFamily="@font/hind_vadodara_medium"
+            android:text="Top of the World is known as one of the
 most romantic restaurants in the city. It offers
 an intimate dining setting paired with
 an extravagant view of the entire city, all
@@ -161,71 +161,86 @@ Yes, that’s right, this restaurant allows diners
 the opportunity to see Las Vegas in its entirety
 if they’re able to stay for at least 80 minutes,
 the time needed for one full rotation."
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
+            android:textColor="@color/fav"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/type_of_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="9dp"
+            android:text="Adresse"
+            android:textColor="@color/fav"
+            android:textSize="15sp"
+            android:fontFamily="@font/open_sans_bold"/>
 
+        <TextView
+            android:id="@+id/type_of_view_text"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:alpha="0.5"
+            android:fontFamily="@font/cabin_bold"
+            android:text="Top of the World is known as one of the
+most romantic restaurants in the city. It offers
+an intimate dining setting paired with
+an extravagant view of the entire city, all
+encompassed in a 360-degree revolving frame.
+Yes, that’s right, this restaurant allows diners
+the opportunity to see Las Vegas in its entirety
+if they’re able to stay for at least 80 minutes,
+the time needed for one full rotation."
+            android:textColor="@color/fav"
+            android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/venue_type_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:alpha="0.5"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Restaurant"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
+        <TextView
+            android:id="@+id/commentaires"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="9dp"
+            android:text="Avis "
+            android:textColor="@color/fav"
+            android:textSize="15sp"
+            android:fontFamily="@font/open_sans_bold"/>
 
-            <TextView
-                android:id="@+id/type_of_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:text="Type of View"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAllComments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="50dp"
+            android:layout_marginBottom="80sp"
+            />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/type_of_view_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="80sp"
-                android:alpha="0.5"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="It might surprise you, but this is the only
-revolving restaurant in Las Vegas. Located
-844 feet in the air, you’re bound to get
-a great view of the city with its massive
-floor-to-ceiling windows."
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp" />
+</ScrollView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvAllComments"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:paddingBottom="50dp"
-                />
-        </LinearLayout>
+    <ImageButton
+        android:id="@+id/btnRateUs"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="264dp"
+        android:background="@drawable/but"
+        android:src="@drawable/ic_star"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivHhotelImage" />
 
-    </ScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/favorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/fab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="408dp"
+        android:background="@drawable/but"
+        android:backgroundTint="@color/lasttext"
         android:src="@drawable/ic_favorite"
         app:fabSize="normal"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

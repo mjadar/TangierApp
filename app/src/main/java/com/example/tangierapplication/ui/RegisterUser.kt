@@ -10,6 +10,8 @@ import com.example.tangierapplication.R
 import com.example.tangierapplication.models.User
 import com.google.android.gms.tasks.Tasks.await
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_register_form.*
 import kotlinx.coroutines.CoroutineScope
@@ -62,11 +64,15 @@ class RegisterUser : AppCompatActivity() {
                     user?.sendEmailVerification()
                         ?.addOnCompleteListener {
                             if(task.isSuccessful){
+                                var profileUpdates = UserProfileChangeRequest.Builder()
+                                        .setDisplayName(nameRegister.text.toString())
+                                        .build()
+                                user.updateProfile(profileUpdates)
                                 val instance = User(emailRegister.text.toString(),nameRegister.text.toString(),user.uid)
-                           db.collection("Users")
-                            .add(instance)
-                            .addOnSuccessListener { documentReference -> Log.d("MainActivity", "DocumentSnapshot added with ID: " + documentReference.id) }
-                            .addOnFailureListener { e -> Log.w("MainActivity", "Error adding document", e) }
+                              db.collection("Users")
+                                .add(instance)
+                                .addOnSuccessListener { documentReference -> Log.d("MainActivity", "DocumentSnapshot added with ID: " + documentReference.id) }
+                                .addOnFailureListener { e -> Log.w("MainActivity", "Error adding document", e) }
 
                                 startActivity(Intent(this, MainActivity::class.java))
                                 finish()

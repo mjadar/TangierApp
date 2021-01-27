@@ -13,15 +13,19 @@ import java.util.*
 data class Review(
         var rating:Float=0f,
         var userId:String="",
-//        var userName:String="",
+        var userName:String="",
         var textR:String="",
 //       @ServerTimestamp var timestamp: FieldValue =FieldValue.serverTimestamp()
         @ServerTimestamp var timestamp: Date? = null
 
 ):Serializable{
-    constructor( rating: Float,userId: String, text: String):this() {
+    constructor( rating: Float,user:FirebaseUser, text: String):this() {
         this.userId = userId
         this.rating = rating
         this.textR = text
+        this.userName = user.displayName.toString()
+        if (TextUtils.isEmpty(this.userName)) {
+            this.userName = user.email.toString()
+        }
     }
 }

@@ -47,7 +47,7 @@ class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
     }
 
     private fun setupRecyclerView(){
-        val query:Query=collectionReference
+        val query:Query=collectionReference.orderBy("avgRating",Query.Direction.DESCENDING)
         val firestoreRecyclerOptions:FirestoreRecyclerOptions<Hotel> = FirestoreRecyclerOptions.Builder<Hotel>()
             .setQuery(query,Hotel::class.java)
             .build()
