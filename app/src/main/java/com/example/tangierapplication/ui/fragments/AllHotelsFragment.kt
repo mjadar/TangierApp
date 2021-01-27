@@ -1,5 +1,6 @@
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -50,7 +51,6 @@ class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
         val firestoreRecyclerOptions:FirestoreRecyclerOptions<Hotel> = FirestoreRecyclerOptions.Builder<Hotel>()
             .setQuery(query,Hotel::class.java)
             .build()
-
         hotelsAdapter = HotelsAdapter(firestoreRecyclerOptions)
         rvAllHotels.apply {
             adapter = hotelsAdapter
