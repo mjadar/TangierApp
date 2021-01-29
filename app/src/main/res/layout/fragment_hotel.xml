@@ -22,50 +22,53 @@ android:background="@color/fav">
     tools:targetApi="lollipop" />
 
 
-
-<LinearLayout
-
-    android:id="@+id/linearLayout"
-    android:layout_width="411dp"
-    android:layout_height="70dp"
-    android:layout_marginTop="12dp"
-    android:background="@color/hotelsand"
-    android:filterTouchesWhenObscured="false"
-    android:orientation="vertical"
-    android:scrollbarThumbHorizontal="@color/white"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/ivHhotelImage">
-
-
-    <TextView
-        android:id="@+id/tvHtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:fontFamily="@font/cabin_bold"
-        android:text="  Royal Tulip Hotel"
-        android:textColor="@color/fav"
-        android:textSize="20dp" />
-
     <LinearLayout
+
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_location" />
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/hotelsand"
+        android:filterTouchesWhenObscured="false"
+        android:orientation="vertical"
+        android:scrollbarThumbHorizontal="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHhotelImage">
+
 
         <TextView
-            android:id="@+id/tvHadresse"
-            android:layout_width="393dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:text="Route de Malabata, Tanger 90000"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+            android:id="@+id/tvHtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/cabin_bold"
+            android:text="  Royal Tulip Hotel"
+            android:textColor="@color/fav"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_location" />
+
+            <TextView
+                android:id="@+id/tvHadresse"
+                android:layout_width="393dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Route de Malabata, Tanger 90000"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+
 
 <ScrollView
     android:id="@+id/third_scrillview"
@@ -151,7 +154,7 @@ android:background="@color/fav">
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:alpha="0.5"
-            android:fontFamily="@font/hind_vadodara_medium"
+            android:fontFamily="@font/open_sans_bold"
             android:text="Top of the World is known as one of the
 most romantic restaurants in the city. It offers
 an intimate dining setting paired with
@@ -221,25 +224,22 @@ the time needed for one full rotation."
         android:id="@+id/btnRateUs"
         android:layout_width="57dp"
         android:layout_height="57dp"
-        android:layout_marginTop="264dp"
+        android:layout_marginEnd="60dp"
         android:background="@drawable/but"
         android:src="@drawable/ic_star"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivHhotelImage" />
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/btnFavorite" />
 
     <ImageButton
-        android:id="@+id/fab"
+        android:id="@+id/btnFavorite"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="408dp"
         android:background="@drawable/but"
         android:backgroundTint="@color/lasttext"
         android:src="@drawable/ic_favorite"
         app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent" />
 
 

@@ -6,12 +6,11 @@ import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Hotel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.FirebaseFirestoreException
 import kotlinx.android.synthetic.main.item_hotel_preview.view.*
 
-class HotelsAdapter(
-    options: FirestoreRecyclerOptions<Hotel>
-) : FirestoreRecyclerAdapter<Hotel,HotelsAdapter.TodoViewHolder>(options){
+class SavedHotelAdapter(
+        var liste:MutableList<Hotel>
+) : RecyclerView.Adapter<SavedHotelAdapter.TodoViewHolder>(){
 
     inner class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -21,16 +20,15 @@ class HotelsAdapter(
     }
 
 
-    override fun onBindViewHolder(holder: TodoViewHolder, position: Int, model: Hotel) {
+    override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         holder.itemView.apply {
-            model.hotelId=snapshots.getSnapshot(position).id
-            tvTitle.text = model.name
-            tvNoteMoyenne.text = model.avgRating.toString()
-            tvNoteNombre.text = model.numRating.toString()
-            rbRatingBar.numStars = model.avgRating.toInt()
+            tvTitle.text = liste[position].name
+            tvNoteMoyenne.text = liste[position].avgRating.toString()
+            tvNoteNombre.text = liste[position].numRating.toString()
+            rbRatingBar.numStars = liste[position].avgRating.toInt()
 //            ivHotelImage.setImageResource(hotels[position].image)
             setOnClickListener {
-                onItemClickListener?.let{it(model)}
+                onItemClickListener?.let{it(liste[position])}
             }
         }
     }
@@ -39,6 +37,10 @@ class HotelsAdapter(
 
     fun setOnItemClickListener(listener: (Hotel) -> Unit) {
         onItemClickListener = listener
+    }
+
+    override fun getItemCount(): Int {
+        return liste.size
     }
 
 }

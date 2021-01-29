@@ -1,11 +1,8 @@
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ratingapp.ui.HotelsAdapter
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Hotel
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -20,7 +17,6 @@ class AllHotelsFragment : Fragment(R.layout.fragment_all_hotels) {
     private val collectionReference:CollectionReference=db.collection("Hotels")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         setupRecyclerView()
 

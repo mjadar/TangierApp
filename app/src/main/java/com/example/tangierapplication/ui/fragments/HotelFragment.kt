@@ -1,15 +1,18 @@
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tangierapplication.R
 import com.example.tangierapplication.db.DataHotelsFb
 import com.example.tangierapplication.models.Hotel
 import com.example.tangierapplication.models.Review
+import com.example.tangierapplication.models.Saved
 import com.example.tangierapplication.ui.dialogs.CustomDialogFragment
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -42,11 +45,14 @@ class HotelFragment : Fragment(R.layout.fragment_hotel), CustomDialogFragment.Ra
             dialog.setTargetFragment(this,1);
             dialog.show(this.parentFragmentManager,"CustomDialogFragment")
         }
+
+        btnFavorite.setOnClickListener {
+            addFavorite(hotel!!)
+        }
     }
 
     fun setData(hotel:Hotel){
 //            ivHhotelImage.setImageResource(hotelSelected.image)
-//            tvHtitle.setText(hotel.hotelId)
             tvHtitle.setText(hotel.name)
             tvHadresse.setText(hotel.adresse)
             third_ratingbar.rating = hotel.avgRating
@@ -55,11 +61,28 @@ class HotelFragment : Fragment(R.layout.fragment_hotel), CustomDialogFragment.Ra
             about_text.setText(hotel.description)
     }
 
+    private fun addFavorite(hotel:Hotel){
+        val userRef = db.collection("Users").document(Firebase.auth.currentUser?.uid!!)
+        val savedRef = userRef.collection("Favorites").document()
+        // In a transaction, add the new rating and update the aggregate totals
+       Firebase.firestore.runTransaction { transaction ->
+           val fav = Saved("hotel",hotelId)
+            // Commit to Firestore
+            transaction.set(savedRef,fav)
+            null
+        } .addOnSuccessListener {
+            Log.d("MainActivity", "Added to favorite")
+            Toast.makeText(context, "Added to favorite", Toast.LENGTH_SHORT).show()
+          }.addOnFailureListener { e ->
+            Log.w("MainActivity", "Add Favorite failed", e)
+            Toast.makeText(parentFragment?.context, "Add Favorite failed", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private fun addRating(hotelRef: DocumentReference, rating: Review): Task<Void> {
         // Create reference for new rating, for use inside the transaction
         val ratingRef = hotelRef.collection("ratings_hotels").document()
         // In a transaction, add the new rating and update the aggregate totals
-        Log.d("Rating","ana f addRating")
         return Firebase.firestore.runTransaction { transaction ->
             val hotel = transaction.get(hotelRef).toObject<Hotel>()
             if (hotel == null) {

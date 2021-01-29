@@ -10,9 +10,5 @@
         android:title="Saved Hotels"
         android:icon="@drawable/ic_favorite"
         />
-    <item
-        android:id="@+id/searchHotelsFragment"
-        android:title="Search"
-        android:icon="@drawable/ic_search"
-        />
+
 </menu>
