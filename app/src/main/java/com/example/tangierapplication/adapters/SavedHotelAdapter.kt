@@ -1,6 +1,9 @@
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Hotel
@@ -27,17 +30,27 @@ class SavedHotelAdapter(
             tvNoteNombre.text = liste[position].numRating.toString()
             rbRatingBar.numStars = liste[position].avgRating.toInt()
 //            ivHotelImage.setImageResource(hotels[position].image)
+
+//            setOnClickListener {
+//                onItemClickListener?.let{liste[position]}
+//            }
             setOnClickListener {
-                onItemClickListener?.let{it(liste[position])}
+                val bundle = Bundle().apply {
+                    putParcelable("hotel",liste[position])
+                }
+                findNavController().navigate(
+                        R.id.action_savedHotelsFragment_to_hotelFragment,
+                        bundle
+                )
             }
         }
     }
 
-    private var onItemClickListener: ((Hotel) -> Unit) ? = null
-
-    fun setOnItemClickListener(listener: (Hotel) -> Unit) {
-        onItemClickListener = listener
-    }
+//    private var onItemClickListener: ((Hotel) -> Unit) ? = null
+//
+//    fun setOnItemClickListener(listener: (Hotel) -> Unit) {
+//        onItemClickListener = listener
+//    }
 
     override fun getItemCount(): Int {
         return liste.size

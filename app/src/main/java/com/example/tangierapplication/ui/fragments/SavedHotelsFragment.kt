@@ -22,15 +22,15 @@ class SavedHotelsFragment : Fragment(R.layout.fragment_saved_hotels) {
         super.onViewCreated(view, savedInstanceState)
         initialSetup()
         setupRecyclerView()
-        ShotelsAdapter.setOnItemClickListener {
-            val bundle = Bundle().apply {
-                putParcelable("hotel",it)
-            }
-            findNavController().navigate(
-                    R.id.action_savedHotelsFragment_to_hotelFragment,
-                    bundle
-            )
-        }
+//        ShotelsAdapter.setOnItemClickListener {
+//            val bundle = Bundle().apply {
+//                putParcelable("hotel",it)
+//            }
+//            findNavController().navigate(
+//                    R.id.action_savedHotelsFragment_to_hotelFragment,
+//                    bundle
+//            )
+//        }
     }
 
     private fun initialSetup(){
