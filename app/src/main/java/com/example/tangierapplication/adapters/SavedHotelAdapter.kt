@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Hotel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -29,6 +30,9 @@ class SavedHotelAdapter(
             tvNoteMoyenne.text = liste[position].avgRating.toString()
             tvNoteNombre.text = liste[position].numRating.toString()
             rbRatingBar.numStars = liste[position].avgRating.toInt()
+            Glide.with(ivHotelImage.context)
+                .load(liste[position].pictures["main"])
+                .into(ivHotelImage)
 //            ivHotelImage.setImageResource(hotels[position].image)
 
 //            setOnClickListener {

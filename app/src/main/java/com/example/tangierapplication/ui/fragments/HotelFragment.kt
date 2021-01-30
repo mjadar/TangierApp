@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.tangierapplication.R
 import com.example.tangierapplication.db.DataHotelsFb
 import com.example.tangierapplication.models.Hotel
@@ -21,6 +22,7 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_all_hotels.*
 import kotlinx.android.synthetic.main.fragment_hotel.*
+import kotlinx.android.synthetic.main.item_hotel_preview.view.*
 
 
 class HotelFragment : Fragment(R.layout.fragment_hotel), CustomDialogFragment.RatingListener  {
@@ -59,6 +61,9 @@ class HotelFragment : Fragment(R.layout.fragment_hotel), CustomDialogFragment.Ra
             third_rating_number.setText(hotel.avgRating.toString())
             third_rating_number2.setText(hotel.numRating.toString())
             about_text.setText(hotel.description)
+        Glide.with(ivHhotelImage.context)
+            .load(hotel.pictures["main"])
+            .into(ivHhotelImage)
     }
 
     private fun addFavorite(hotel:Hotel){

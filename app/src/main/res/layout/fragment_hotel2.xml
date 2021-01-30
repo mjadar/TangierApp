@@ -30,7 +30,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:transitionName="background_image_transition"
-                app:srcCompat="@drawable/image1"
                 tools:targetApi="lollipop" />
 
             <Button

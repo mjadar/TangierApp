@@ -1,8 +1,11 @@
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Hotel
 import com.example.tangierapplication.models.Saved
@@ -22,15 +25,6 @@ class SavedHotelsFragment : Fragment(R.layout.fragment_saved_hotels) {
         super.onViewCreated(view, savedInstanceState)
         initialSetup()
         setupRecyclerView()
-//        ShotelsAdapter.setOnItemClickListener {
-//            val bundle = Bundle().apply {
-//                putParcelable("hotel",it)
-//            }
-//            findNavController().navigate(
-//                    R.id.action_savedHotelsFragment_to_hotelFragment,
-//                    bundle
-//            )
-//        }
     }
 
     private fun initialSetup(){
@@ -40,6 +34,7 @@ class SavedHotelsFragment : Fragment(R.layout.fragment_saved_hotels) {
             layoutManager = LinearLayoutManager(activity)
         }
     }
+
     private fun setupRecyclerView(){
         var liste = mutableListOf<String>()
         var listeHotels = mutableListOf<Hotel>()
@@ -67,10 +62,36 @@ class SavedHotelsFragment : Fragment(R.layout.fragment_saved_hotels) {
                                         }
                                     }
                                 }
-
                     }
                 }
+        var simpleCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return false
+            }
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                var position = viewHolder.adapterPosition
+                deleteFavHotel(listeHotels,position)
+                listeHotels.removeAt(position)
+                ShotelsAdapter.notifyItemRemoved(position)
+                ShotelsAdapter.notifyDataSetChanged()
+            }
+        }
+        val itemTouchHelper= ItemTouchHelper(simpleCallback)
+        itemTouchHelper.attachToRecyclerView(rvSavedHotels)
 
+    }
+
+    private fun deleteFavHotel(listeHotel:MutableList<Hotel>,position:Int){
+        userReference.whereEqualTo("documentRef",listeHotel.get(position).hotelId)
+                .get()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        for (document in task.result!!) {
+                          userReference.document(document.id).delete()
+                        }
+                        Log.d("ddddd","delete successfull")
+                    }
+            }
     }
 
 }

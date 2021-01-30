@@ -9,13 +9,13 @@
     tools:context=".ui.HomePage">
 
     <ImageView
-        android:layout_width="455dp"
-        android:layout_height="331dp"
-        android:layout_marginBottom="464dp"
+        android:layout_width="422dp"
+        android:layout_height="322dp"
+        android:layout_marginBottom="460dp"
         android:src="@drawable/page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ViewFlipper
