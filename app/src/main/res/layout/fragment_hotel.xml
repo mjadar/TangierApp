@@ -148,7 +148,7 @@ android:background="@color/fav">
         <TextView
             android:id="@+id/about_text"
             android:layout_width="match_parent"
-            android:layout_height="175dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:alpha="0.5"
