@@ -9,7 +9,7 @@ import com.example.tangierapplication.R
 import com.example.tangierapplication.models.Places
 import com.example.tangierapplication.models.Review
 import com.example.tangierapplication.models.Saved
-import com.example.tangierapplication.ui.dialogs.CustomDialogFragment
+import com.example.tangierapplication.ui.fragments.dialogs.CustomDialogFragment
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth

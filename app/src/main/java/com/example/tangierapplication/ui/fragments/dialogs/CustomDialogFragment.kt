@@ -1,4 +1,4 @@
-package com.example.tangierapplication.ui.dialogs
+package com.example.tangierapplication.ui.fragments.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -45,7 +45,6 @@ class CustomDialogFragment : DialogFragment(){
                     restaurantFormRating.rating,
                     it,
                     restaurantFormText.text.toString())
-
 //            ratingListener = targetFragment as RatingListener
             ratingListener?.onRating(rating)
             Toast.makeText(parentFragment?.context,"Rating added successfully",Toast.LENGTH_SHORT).show()

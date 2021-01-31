@@ -10,7 +10,7 @@ import com.example.tangierapplication.db.DataHotelsFb
 import com.example.tangierapplication.models.Hotel
 import com.example.tangierapplication.models.Review
 import com.example.tangierapplication.models.Saved
-import com.example.tangierapplication.ui.dialogs.CustomDialogFragment
+import com.example.tangierapplication.ui.fragments.dialogs.CustomDialogFragment
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
@@ -20,9 +20,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_all_hotels.*
 import kotlinx.android.synthetic.main.fragment_hotel.*
-import kotlinx.android.synthetic.main.item_hotel_preview.view.*
 
 
 class HotelFragment : Fragment(R.layout.fragment_hotel), CustomDialogFragment.RatingListener  {

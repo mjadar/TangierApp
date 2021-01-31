@@ -186,7 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_baseline_place_24"
+        android:src="@drawable/ic_location2"
         app:layout_constraintBottom_toBottomOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="@+id/textView11" />
 
