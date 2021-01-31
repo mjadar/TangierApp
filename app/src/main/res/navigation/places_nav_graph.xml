@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/hotels_nav_graph"
+    app:startDestination="@id/allPlacesFragment">
+    <fragment
+        android:id="@+id/allPlacesFragment"
+        android:name="AllPlacesFragment"
+        android:label="AllPlacesFragment" >
+        <action
+            android:id="@+id/action_allPlacesFragment_to_placeFragment"
+            app:destination="@id/placeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeFragment"
+        android:name="PlaceFragment"
+        android:label="PlaceFragment" />
+    <fragment
+        android:id="@+id/savedPlacesFragment"
+        android:name="SavedPlacesFragment"
+        android:label="SavedPlacesFragment" >
+        <action
+            android:id="@+id/action_savedPlacesFragment_to_placeFragment"
+            app:destination="@id/placeFragment" />
+    </fragment>
+</navigation>

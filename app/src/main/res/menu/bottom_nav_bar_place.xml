@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/allPlacesFragment"
+        android:title="Places to visit"
+        android:icon="@drawable/ic_places"
+    />
+    <item
+        android:id="@+id/savedPlacesFragment"
+        android:title="Saved Places"
+        android:icon="@drawable/ic_favorite"
+        />
+
+</menu>

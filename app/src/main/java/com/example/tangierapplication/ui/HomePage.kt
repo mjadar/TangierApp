@@ -8,7 +8,10 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.example.tangierapplication.R
 import com.example.tangierapplication.models.User
+import com.example.tangierapplication.ui.hotel.CafesUI
 import com.example.tangierapplication.ui.hotel.HotelsUI
+import com.example.tangierapplication.ui.hotel.PlacesUI
+import com.example.tangierapplication.ui.hotel.RestaurantsUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_home_page.*
@@ -33,6 +36,21 @@ class HomePage : AppCompatActivity() {
         }
         rdHotels.setOnClickListener {
             Intent(this, HotelsUI::class.java).also {
+                startActivity(it)
+            }
+        }
+        rdCafe.setOnClickListener {
+            Intent(this,CafesUI::class.java).also {
+                startActivity(it)
+            }
+        }
+        rdPlacesVisite.setOnClickListener {
+            Intent(this, PlacesUI::class.java).also {
+                startActivity(it)
+            }
+        }
+        rdRestaurants.setOnClickListener {
+            Intent(this, RestaurantsUI::class.java).also {
                 startActivity(it)
             }
         }

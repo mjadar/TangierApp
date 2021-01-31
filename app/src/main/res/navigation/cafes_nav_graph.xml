@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/hotels_nav_graph"
+    app:startDestination="@id/allCafesFragment">
+    <fragment
+        android:id="@+id/allCafesFragment"
+        android:name="AllCafesFragment"
+        android:label="AllCafesFragment" >
+        <action
+            android:id="@+id/action_allCafesFragment_to_cafeFragment"
+            app:destination="@id/cafeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cafeFragment"
+        android:name="CafeFragment"
+        android:label="CafeFragment" />
+    <fragment
+        android:id="@+id/savedCafesFragment"
+        android:name="SavedCafesFragment"
+        android:label="SavedCafesFragment" >
+        <action
+            android:id="@+id/action_savedCafesFragment_to_cafeFragment"
+            app:destination="@id/cafeFragment" />
+    </fragment>
+</navigation>
